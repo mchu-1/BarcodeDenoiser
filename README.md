@@ -1,5 +1,5 @@
 # barcode-denoiser
-Computing diversity gradients between barcoding datasets.
+Statistical denoising of barcode data.
 
 <figure>
     <img src = 'zero-ground-truth.jpg' width = '500'>
