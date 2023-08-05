@@ -2,7 +2,7 @@
 Statistical denoising of barcode data.
 
 <figure>
-    <img src = 'zero-ground-truth.jpg' width = '500'>
+    <img src = 'zero-ground-truth.jpg' width = '750'>
     <figcaption>
     When there is no way to tell which barcodes are real, we must measure the noise and subtract it from the data.
     </figcaption>
