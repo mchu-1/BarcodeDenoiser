@@ -11,6 +11,6 @@ Statistical denoising of barcode data.
 This package offers a way to statistically measure and remove noise from sequencing data of fixed-length barcodes.
 
 ## Contents
-1. [Theory](notebooks/theory.ipynb) - The mathematics of diversity framed in a set theoeretic perspective.
+1. [Theory](notebooks/theory.ipynb) - A set theoretic perspective on barcode diversity.
 2. [Algorithm](notebooks/algorithm.pdf) - Indexing barcode diversity by decomposition.
-3. [Implementation](src/BarcodeDenoiser.jl) - Written in Julia.
+3. [BarcodeDenoiser.jl](src/BarcodeDenoiser.jl) - Implemented in Julia.
