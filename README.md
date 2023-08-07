@@ -4,9 +4,8 @@ Statistical denoising of barcode data.
 <figure>
     <img src = 'identity-paradox.jpg' width = '750'>
     <figcaption>
-    <i>"Which one?"</i><br>
-    <i>"I don't care which one - get em both!"</i><br>
-    <b>"Double Identity"</b>, S01E19b Spider-Man 1967.
+    <i>When there is no way to tell whcih barcodes are real ...</i><br></br>
+    <b>Double Identity</b>, Spider-Man 1967.
     </figcaption>
 </figure>
 <br></br>
