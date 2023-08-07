@@ -27,9 +27,6 @@ function parse_cmd()
     return parse_args(s)
 end
 
-# TODO: Refactor out
-# TODO: Import vs include
-# TODO: Refactor config file
 
 function denoise_data(file, config, out::String)
     """
@@ -40,6 +37,9 @@ function denoise_data(file, config, out::String)
     
     V = trim.get_sequences(file)
     @info "Read sequences from $file."
+    l, r = settings["left"], settings["right"]
+    V = [trim_sequence(v, l, r) for v in V]
+    @info "Trimmed sequences between '$l' and '$r'."
 
     k = settings["k"]
     A = trim.generate_windows(V)
@@ -60,6 +60,7 @@ function denoise_data(file, config, out::String)
     @info "True barcode diversity estimated at $T."
 
     plot.plot_diversity(W, out)
+    ix = findlast("/", out)
     @info "Plot diversity and saved to $out."
     @info "Completed successfully for $file."
 
