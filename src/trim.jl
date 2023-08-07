@@ -28,6 +28,7 @@ function get_sequences(file::String)
     return V
 end
 
+# TODO: Trim sequences
 
 function generate_windows(V::Vector{String}, k::AbstractInt)
     """
