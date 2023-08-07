@@ -35,10 +35,16 @@ function denoise_data(file, config, out::String)
     settings = YAML.load_file(config)
     @info "Read settings from $config"
     
+    trim.check_format(file)
+    @info "Checked format of $file."
+
+    file = open(file, "r")
     V = trim.get_sequences(file)
     @info "Read sequences from $file."
+
     l, r = settings["left"], settings["right"]
     V = [trim_sequence(v, l, r) for v in V]
+    V = V[V.!=nothing]
     @info "Trimmed sequences between '$l' and '$r'."
 
     k = settings["k"]
