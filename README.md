@@ -14,4 +14,4 @@ This package offers a way to statistically measure and remove noise from sequenc
 ## Contents
 1. [Theory](notebooks/theory.ipynb) - A set theoretic perspective on barcode diversity.
 2. [Algorithm](notebooks/algorithm.pdf) - Indexing barcode diversity by decomposition.
-3. [BarcodeDenoiser.jl](src/BarcodeDenoiser.jl) - Implemented in Julia.
+3. [BarcodeDenoiser.jl](src/BarcodeDenoiser.jl) - Denoising program implemented in Julia.
