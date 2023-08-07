@@ -8,18 +8,18 @@ module compute
 
 using Statistics
 
-function compute_noise(W::Vector{AbstractFloat}, b,k::AbstractInt)
+function compute_noise(W::Vector{Float64}, b,k::Int)
     """
     Compute noise from diversity vector.
     """
-    N = mean(vcat(W[begin:b-1], W[b+k+1:end]))
+    N = mean(vcat(W[begin:b-1], W[b+k:end]))
 
     return N
 
 end
 
 
-function compute_apparent_diversity(W::Vector{AbstractFloat}, b::AbstractInt)
+function compute_apparent_diversity(W::Vector{Float64}, b::Int64)
     """
     Compute apparent barcode diversity.
     """
@@ -29,7 +29,7 @@ function compute_apparent_diversity(W::Vector{AbstractFloat}, b::AbstractInt)
 end
 
 
-function compute_true_diversity(N, S::AbstractFloat)
+function compute_true_diversity(N, S::Float64)
     """
     Compute true barcode diversity by decomposition.
     """
