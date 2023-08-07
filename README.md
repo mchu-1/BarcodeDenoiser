@@ -2,7 +2,7 @@
 Statistical denoising of barcode data.
 
 <figure>
-    <img src = 'identity-paradox.jpg' width = '750'>
+    <img src = 'double-identity.jpg' width = '750'>
     <figcaption>
     <i>When there is no way to tell which barcodes are real ...</i><br>
     <b>Double Identity</b>, Spider-Man 1967.
