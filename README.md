@@ -1,4 +1,4 @@
-# BarcodeDenoiser.jl
+# Barcode Denoiser
 Statistical denoising of barcode data.
 
 <figure>
