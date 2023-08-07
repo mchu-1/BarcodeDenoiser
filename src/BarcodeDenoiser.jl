@@ -4,7 +4,10 @@
 Statistically denoise barcode sequencing data.
 """
 
-import trim, index, compute, plot
+include("trim.jl")
+include("index.jl")
+include("compute.jl")
+include("graph.jl")
 
 using ArgParse
 using YAML
@@ -48,7 +51,7 @@ function denoise_data(file, config, out::String)
     @info "Trimmed sequences between '$l' and '$r'."
 
     k = settings["k"]
-    A = trim.generate_windows(V)
+    A = trim.generate_windows(V, k)
     @info "Generated $k-mer windows."
     
     q = settings["q"]
@@ -66,7 +69,6 @@ function denoise_data(file, config, out::String)
     @info "True barcode diversity estimated at $T."
 
     plot.plot_diversity(W, out)
-    ix = findlast("/", out)
     @info "Plot diversity and saved to $out."
     @info "Completed successfully for $file."
 
