@@ -4,7 +4,7 @@
 Unit tests for trim.jl.
 """
 
-import trim: get_sequences, generate_windows
+import trim
 
 using Test
 
@@ -20,14 +20,14 @@ using Test
         (((**
 
     """)
-    @test get_sequences(mock_file) == ["AAAT", "GGGC"]
+    @test trim.get_sequences(mock_file) == ["AAAT", "GGGC"]
 
     defect_file = "f.bam"
-    @test_throws FileFormatError get_sequences(defect_file)
+    @test_throws FileFormatError trim.get_sequences(defect_file)
 end
 
 
 @testset "Generate sequence windows" begin
     V = ["AAAAT", "GGGGC"]
-    @test generate_windows(V, 3) == ["AAA" "AAA" "AAT"; "GGG" "GGG" "GGC"]
+    @test trim.generate_windows(V, 3) == ["AAA" "AAA" "AAT"; "GGG" "GGG" "GGC"]
 end
