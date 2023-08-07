@@ -4,8 +4,8 @@ Statistical denoising of barcode data.
 <figure>
     <img src = 'identity-paradox.jpg' width = '750'>
     <figcaption>
-    <b>'Double Identity' - Episode 19b of Spider-Man 1969</b>
-    <i>When there is no way to tell which barcodes are real ...</i>
+    <i>"Which one? I don't care which one - get em both!"</i><br>
+    <b>'Jonah Jameson in "Double Identity"</b>, S01E19b Spider-Man 1967.
     </figcaption>
 </figure>
 <br></br>
