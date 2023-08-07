@@ -1,4 +1,4 @@
-# barcode-denoiser
+# BarcodeDenoiser
 Statistical denoising of barcode data.
 
 <figure>
