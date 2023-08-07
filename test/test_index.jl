@@ -4,14 +4,14 @@
 Unit tests for index.jl.
 """
 
-import index
+include("../src/index.jl")
 
 using Test
 
 v = ["AAA","AAA","AAA","AAA","TTT","TTT","TTT","TTT","CCC"]
 
 @testset "Get probability distribution from a sequence window" begin
-    @test index.get_dist(v) ≈ [4/9 4/9 1/9]
+    @test index.get_dist(v) ≈ [4/9, 4/9, 1/9]
 end
 
 

@@ -4,11 +4,14 @@
 Unit tests for trim.jl.
 """
 
-import trim
+include("../src/trim.jl")
 
 using Test
 
 @testset "Get sequences from file" begin
+    defect_file = "f.bam"
+    @test_throws trim.FileFormatError trim.check_format(defect_file)
+
     mock_file = IOBuffer("""
         @SEQ_1
         AAAAT
@@ -18,12 +21,8 @@ using Test
         GGGGC
         +
         (((**
-
-    """)
-    @test trim.get_sequences(mock_file) == ["AAAT", "GGGC"]
-
-    defect_file = "f.bam"
-    @test_throws FileFormatError trim.get_sequences(defect_file)
+        """)
+    @test trim.get_sequences(mock_file) == ["AAAAT", "GGGGC"]
 end
 
 
