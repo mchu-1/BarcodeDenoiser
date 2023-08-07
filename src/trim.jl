@@ -10,7 +10,7 @@ struct FileFormatError <: Exception
     msg::String
 end
 
-function get_sequences(file::String)
+function get_sequences(file, l, r::String)
     """
     Get sequences from FASTQ file.
     """
@@ -28,7 +28,20 @@ function get_sequences(file::String)
     return V
 end
 
-# TODO: Trim sequences
+
+function trim_sequence(v, l, r::String)
+    """
+    Trim sequence using left and right patterns.
+    """
+    i = findfirst(l, seq)[0]
+    j = findfirst(r, seq)[1]
+    if nothing in [i, j]
+        return nothing
+    else
+        return v[i:j]
+    end
+end
+
 
 function generate_windows(V::Vector{String}, k::AbstractInt)
     """
@@ -46,6 +59,7 @@ function generate_windows(V::Vector{String}, k::AbstractInt)
 end
 
 export get_sequences
+export trim_sequence
 export generate_windows
 
 end
