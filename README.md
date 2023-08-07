@@ -4,8 +4,9 @@ Statistical denoising of barcode data.
 <figure>
     <img src = 'identity-paradox.jpg' width = '750'>
     <figcaption>
-    <i>"Which one? I don't care which one - get em both!"</i><br>
-    <b>'Jonah Jameson in "Double Identity"</b>, S01E19b Spider-Man 1967.
+    <i>"Which one?"</i><br>
+    <i>"I don't care which one - get em both!"</i><br>
+    <b>"Double Identity"</b>, S01E19b Spider-Man 1967.
     </figcaption>
 </figure>
 <br></br>
