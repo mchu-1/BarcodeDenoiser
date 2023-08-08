@@ -31,18 +31,25 @@ function get_sequences(file::IO)
 end
 
 
-function trim_sequence(v, l, r::String)
+function trim_sequence(v, l, r::String, L::Int, b::Int, BP::String)
     """
     Trim sequence using left and right patterns.
     """
     i = findfirst(l, v)
     j = findfirst(r, v)
+
     if nothing in [i, j]
+        # Untrimmed sequences
         return nothing
-    else
-        i, j = i[end]+1, j[begin]-1
-        return v[i:j]
     end
+
+    i, j = i[end]+1, j[begin]-1
+    if j-i+1 != L
+        # Sequences of incorrect length
+        return nothing
+    end
+
+    return v[i:j]
 end
 
 

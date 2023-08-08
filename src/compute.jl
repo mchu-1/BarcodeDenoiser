@@ -12,7 +12,7 @@ function compute_noise(W::Vector{Float64}, b,k::Int)
     """
     Compute noise from diversity vector.
     """
-    N = mean(vcat(W[begin:b-1], W[b+k:end]))
+    N = mean(vcat(W[begin:b-k], W[b+k:end]))
 
     return N
 
