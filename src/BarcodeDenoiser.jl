@@ -4,6 +4,13 @@
 Statistically denoise barcode sequencing data.
 """
 
+using Pkg
+
+Pkg.activate(joinpath(@__DIR__, ".."))
+Pkg.instantiate()
+
+module BarcodeDenoiser
+
 include("trim.jl")
 include("index.jl")
 include("compute.jl")
@@ -15,7 +22,7 @@ using Logging
 
 function parse_cmd()
     s = ArgParseSettings()
-    @add_arg_table begin
+    @add_arg_table s begin
         "--input"
             help = "Input sequencing file (FASTQ)."
             arg_type = String
@@ -41,13 +48,14 @@ function denoise_data(file, config, out::String)
     trim.check_format(file)
     @info "Checked format of $file."
 
-    file = open(file, "r")
-    V = trim.get_sequences(file)
+    io = open(file, "r")
+    V = trim.get_sequences(io)
     @info "Read sequences from $file."
 
-    l, r = settings["left"], settings["right"]
-    V = [trim_sequence(v, l, r) for v in V]
-    V = V[V.!=nothing]
+    l, r, L, b, BP = settings["left"], settings["right"], settings["L"], settings["b"], settings["BP"]
+    V = [trim.trim_sequence(v, l, r, L, b, BP) for v in V]
+    # Filter untrimmed sequences and sequences of incorrect length
+    V = String[v for v in V if v!==nothing]
     @info "Trimmed sequences between '$l' and '$r'."
 
     k = settings["k"]
@@ -58,7 +66,6 @@ function denoise_data(file, config, out::String)
     W = index.index_diversity(A, q)
     @info "Indexed diversity using the Hill number of order $q."
     
-    b = settings["b"]
     N = compute.compute_noise(W, b, k)
     @info "Noise = $N."
     
@@ -68,12 +75,14 @@ function denoise_data(file, config, out::String)
     T = compute.compute_true_diversity(N, S)
     @info "True barcode diversity estimated at $T."
 
-    plot.plot_diversity(W, out)
+    graph.plot_diversity(W, out)
     @info "Plot diversity and saved to $out."
     @info "Completed successfully for $file."
 
 end
 
 args = parse_cmd()
-file, config, out = args["input"], args["config"], args["out"]
+file, config, out = args["input"], args["config"], args["output"]
 denoise_data(file, config, out)
+
+end
