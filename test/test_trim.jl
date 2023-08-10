@@ -10,7 +10,7 @@ using Test
 
 @testset "Get sequences from file" begin
     defect_file = "f.bam"
-    @test_throws trim.FileFormatError trim.check_format(defect_file)
+    @test_throws trim.utils.FileFormatError trim.check_format(defect_file)
 
     mock_file = IOBuffer("""
         @SEQ_1
@@ -28,9 +28,11 @@ end
 
 @testset "Trim sequence" begin
     seq = "NNNACTGMMM"
+    bad_seq = "NNNACTMMM"
     trimmed_seq = "ACTG"
-    @test trim.trim_sequence(seq, "NNN", "MMM") == trimmed_seq
-    @test trim.trim_sequence(seq, "PPP", "MMM") ===  nothing
+    @test trim.trim_sequence(seq, "NNN", "MMM", 4) == trimmed_seq
+    @test trim.trim_sequence(seq, "PPP", "MMM", 4) ===  nothing
+    @test trim.trim_sequence(bad_seq, "NNN", "MMM", 4) ===  nothing
 end
 
 
