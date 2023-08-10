@@ -5,13 +5,11 @@ Trim sequencing data into windows of fixed size.
 """
 module trim
 
-struct FileFormatError <: Exception
-    msg::String
-end
+include("utils.jl")
 
 function check_format(file::String)
     if split(file, ".")[end] != "fastq"
-        throw(FileFormatError("File must be in FASTQ format."))
+        throw(utils.FileFormatError("Input file must be in FASTQ format."))
     end
 end
 
