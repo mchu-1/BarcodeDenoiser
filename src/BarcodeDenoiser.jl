@@ -15,6 +15,7 @@ include("trim.jl")
 include("index.jl")
 include("compute.jl")
 include("graph.jl")
+include("utils.jl")
 
 using ArgParse
 using YAML
