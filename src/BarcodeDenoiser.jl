@@ -77,7 +77,7 @@ function denoise_data(file, config, out::String)
     @info "True barcode diversity estimated at $T."
 
     graph.plot_diversity(W, out)
-    @info "Plot diversity and saved to $out.png."
+    @info "Plot diversity and saved to $out."
     @info "Completed successfully for $file."
 
 end
