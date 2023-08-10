@@ -30,7 +30,7 @@ function parse_cmd()
             help = "Config file (YAML)."
             arg_type = String
         "--output"
-            help = "Output directory."
+            help = "Output file (PNG)."
             arg_type = String
     end
 
@@ -76,7 +76,7 @@ function denoise_data(file, config, out::String)
     @info "True barcode diversity estimated at $T."
 
     graph.plot_diversity(W, out)
-    @info "Plot diversity and saved to $out."
+    @info "Plot diversity and saved to $out.png."
     @info "Completed successfully for $file."
 
 end
