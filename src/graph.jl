@@ -25,7 +25,7 @@ function plot_diversity(W::Vector{Float64}, out::String)
     
     xlabel!("position")
     ylabel!("diversity")
-    savefig(out*".png")
+    savefig(out)
 end
 
 export plot_diversity
