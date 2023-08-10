@@ -31,7 +31,7 @@ function get_sequences(file::IO)
 end
 
 
-function trim_sequence(v, l, r::String, L::Int, b::Int, BP::String)
+function trim_sequence(v, l, r::String, L::Int)
     """
     Trim sequence using left and right patterns.
     """
