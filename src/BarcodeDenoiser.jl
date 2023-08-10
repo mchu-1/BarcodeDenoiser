@@ -52,8 +52,8 @@ function denoise_data(file, config, out::String)
     V = trim.get_sequences(io)
     @info "Read sequences from $file."
 
-    l, r, L, b, BP = settings["left"], settings["right"], settings["L"], settings["b"], settings["BP"]
-    V = [trim.trim_sequence(v, l, r, L, b, BP) for v in V]
+    l, r, L, b = settings["left"], settings["right"], settings["L"], settings["b"]
+    V = [trim.trim_sequence(v, l, r, L) for v in V]
     # Filter untrimmed sequences and sequences of incorrect length
     V = String[v for v in V if v!==nothing]
     @info "Trimmed sequences between '$l' and '$r'."
