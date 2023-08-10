@@ -1,7 +1,7 @@
 name = "BarcodeDenoiser"
 uuid = "83fd40f2-f65c-4d2d-9c48-04c9b3d3d0dd"
 version = "0.1.0"
-authors = ["Mathew Chu <chu.m@wehi.edu.au>]
+authors = ["Mathew Chu <chu.m@wehi.edu.au>"]
 
 [deps]
 ArgParse = "c7e460c6-2fb9-53a9-8c5b-16f535851c63"
