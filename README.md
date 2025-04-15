@@ -1,5 +1,5 @@
 # BarcodeDenoiser
-Statistical denoising of barcode data.
+Statistical denoising of DNA barcode data.
 
 <figure>
     <img src = 'double-identity.jpg' width = '750'>
